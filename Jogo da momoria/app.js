@@ -1,6 +1,6 @@
 let primeiraCarta, segundaCarta;
 let bloqueioVirarCartao = false;
-let pontos = 0; // Variável para contagem de pontos
+let pontos = 0;
 
 function atualizaPontos() {
     document.getElementById('pontos').textContent = `Pontos: ${pontos}`;
@@ -46,8 +46,8 @@ function verificarPar() {
     let segundaImagem = segundaCarta.querySelector('.frente').src;
 
     if (primeiraImagem === segundaImagem) {
-        pontos += 10; // Adiciona 10 pontos por par encontrado
-        atualizaPontos(); // Atualiza o contador de pontos
+        pontos += 10;
+        atualizaPontos();
         primeiraCarta = null;
         segundaCarta = null;
         bloqueioVirarCartao = false;
@@ -63,24 +63,19 @@ function verificarPar() {
 }
 
 function inicializarJogo() {
-    // Reinicia os pontos
     pontos = 0;
     atualizaPontos();
 
-    // Limpa o container de cartões
     document.getElementById('container').innerHTML = '';
     primeiraCarta = null;
     segundaCarta = null;
     bloqueioVirarCartao = false;
     
-    // Recria os cartões
     pares.forEach(({ src, alt }) => {
         criaCartao(src, alt);
     });
 }
 
-// Adiciona o evento ao botão de recomeçar
 document.getElementById('recomecar').addEventListener('click', inicializarJogo);
 
-// Inicializa o jogo ao carregar a página
 inicializarJogo();
