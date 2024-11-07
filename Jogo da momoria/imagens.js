@@ -7,13 +7,11 @@ const imagens = [
     { src: 'img/frente6.png', alt: 'Imagem 5' }
 ];
 
-// Duplicar e embaralhar as imagens para criar pares
 let pares = [...imagens, ...imagens].sort(() => Math.random() - 0.5);
 
-// Limitar o array embaralhado para exatamente 9 cartões
 pares = pares.slice(0, 12);
 
 pares.forEach(({ src, alt }) => {
-    console.log(`Criando cartão para: ${src}`);  // Verifica se as imagens estão sendo lidas
+    console.log(`Criando cartão para: ${src}`);
     criaCartao(src, alt);
 });
